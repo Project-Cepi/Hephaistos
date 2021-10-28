@@ -169,7 +169,7 @@ class ChunkColumn @JvmOverloads constructor(val x: Int, val z: Int, val minY: In
         if(z !in 0..15)
             throw IllegalArgumentException("z ($z) is not in 0..15")
         if(y !in minY..maxY)
-            throw IllegalArgumentException("y ($y) is not in 0..255")
+            throw IllegalArgumentException("y ($y) is not in $minY..$maxY")
     }
 
     /**

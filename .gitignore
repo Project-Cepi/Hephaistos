@@ -16,3 +16,8 @@ gradle-app.setting
 .idea
 common/tmp_parallel_empty_r.0.0.mca
 common/tmp_save_r.0.0.mca
+
+**/bin/
+**/.settings
+.project
+.classpath

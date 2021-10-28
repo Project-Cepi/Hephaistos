@@ -12,9 +12,6 @@ public class SNBTCoherencyTests {
 
     @Test
     public void testCoherence() throws NBTException {
-
-        NBTList<NBTString> testList = NBT.List(NBTType.TAG_String, 10, i -> NBT.String("Test#" + i));
-
         NBTCompound c = NBT.Compound(root -> {
             root.put("inside", NBT.Compound(inside -> {
                 inside.put("AAA", NBT.Byte(42));
@@ -28,7 +25,7 @@ public class SNBTCoherencyTests {
                 inside.put("FFF", NBT.Float(0.125f));
                 inside.put("some text", NBT.String("KSOKPDOK"));
             }));
-            root.put("list", testList);
+            root.put("list", NBT.List(NBTType.TAG_String, 10, i -> NBT.String("Test#" + i)));
             root.put("timestamp", NBT.Long(-914312L));
         });
 

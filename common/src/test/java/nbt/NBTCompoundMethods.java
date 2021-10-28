@@ -13,9 +13,7 @@ public class NBTCompoundMethods {
     @Test
     public void setString() {
 
-        var nbt = NBT.Compound((map) -> {
-            map.put("a", NBT.String("hi"));
-        });
+        var nbt = NBT.Compound("a", NBT.String("hi"));
 
         assertEquals(1, nbt.getSize());
         assertTrue(nbt.get("a") instanceof NBTString);
@@ -25,9 +23,7 @@ public class NBTCompoundMethods {
     @Test
     public void setShort() {
 
-        var nbt = NBT.Compound((map) -> {
-            map.put("a", NBT.Short((short) 42));
-        });
+        var nbt = NBT.Compound("a", NBT.Short((short) 42));
 
         assertEquals(1, nbt.getSize());
         assertTrue(nbt.get("a") instanceof NBTShort);
@@ -37,9 +33,7 @@ public class NBTCompoundMethods {
     @Test
     public void setByte() {
 
-        var nbt = NBT.Compound((map) -> {
-            map.put("a", NBT.Byte((byte) 0xCA));
-        });
+        var nbt = NBT.Compound("a", NBT.Byte((byte) 0xCA));
 
         assertEquals(1, nbt.getSize());
         assertTrue(nbt.get("a") instanceof NBTByte);

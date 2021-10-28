@@ -111,6 +111,10 @@ sealed interface NBT {
         @Contract(pure = true)
         fun Compound(tags: Map<String, NBT> = mapOf()) = NBTCompound(tags)
 
+		@JvmStatic
+        @Contract(pure = true)
+		fun Compound(key: String, value: NBT) = NBTCompound(mapOf(Pair(key, value)))
+
         @Contract(pure = true)
         inline fun Kompound(crossinline lambda: MutableNBTCompound.() -> Unit) = Compound { lambda(it) }
 

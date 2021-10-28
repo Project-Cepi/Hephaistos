@@ -95,6 +95,8 @@ Use `NBTWriter#writeNamed` and `NBTReader#read()`.
 #### SNBT format
 If you want to read SNBT, use `SNBTParser#parse` with a `Reader` which contains the SNBT string to parse.
 
+Or, if you want to read SNBT from a string, use `SNBTParser.parse(String)`
+
 If you want to write SNBT, simply use the `toSNBT()` method on any `NBT` instance.
 
 #### JSON format

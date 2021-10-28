@@ -8,8 +8,11 @@ import org.jglrxavpok.hephaistos.nbt.NBTException
 import java.io.Reader
 import kotlin.jvm.Throws
 import org.jglrxavpok.hephaistos.antlr.SNBTParser as ANTLRParser
+import java.io.StringReader;
 
 class SNBTParser(val reader: Reader): BaseErrorListener(), AutoCloseable, Cloneable {
+
+	constructor(string: String): this(StringReader(string))
 
     @Throws(NBTException::class)
     fun parse(): NBT {
@@ -40,4 +43,12 @@ class SNBTParser(val reader: Reader): BaseErrorListener(), AutoCloseable, Clonea
     ) {
         throw NBTException("Failed to parse SNBT: Line $line, column $charPositionInLine $msg", e)
     }
+
+	companion object {
+		@JvmStatic
+		fun parse(string: String): NBT {
+			val parser =  SNBTParser(string)
+			return parser.parse().also { parser.close() }
+		}
+	}
 }

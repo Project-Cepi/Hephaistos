@@ -33,18 +33,12 @@ public class SNBTCoherencyTests {
         });
 
         String snbt = c.toSNBT();
-        try(SNBTParser parser = new SNBTParser(new StringReader(snbt))) {
-            assertEquals(c, parser.parse());
-        }
+        assertEquals(c, SNBTParser.parse(snbt));
     }
 
     @Test
     public void syntaxError() {
         String snbt = "{display:{Lore:[\"text here\"]}";
-        assertThrows(NBTException.class, () -> {
-            try (SNBTParser parser = new SNBTParser(new StringReader(snbt))) {
-                parser.parse();
-            }
-        }, "Missing bracket, should not parse");
+        assertThrows(NBTException.class, () -> SNBTParser.parse(snbt), "Missing bracket, should not parse");
     }
 }

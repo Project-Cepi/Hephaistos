@@ -2,10 +2,17 @@ plugins {
     kotlin("jvm") version "1.5.10"
     java
     id("org.jetbrains.dokka") version "1.5.0"
+	id("io.gitlab.arturbosch.detekt") version "1.18.1"
 }
 
 repositories {
     mavenCentral()
+}
+
+detekt {
+    toolVersion = "1.18.1"
+    config = files("config/detekt/detekt.yml")
+    buildUponDefaultConfig = true
 }
 
 allprojects {

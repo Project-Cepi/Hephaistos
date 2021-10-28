@@ -1,5 +1,2 @@
 build:
-  maxIssues: 0
-style:
-  WildcardImport:
-    active: false
+  maxIssues: 100

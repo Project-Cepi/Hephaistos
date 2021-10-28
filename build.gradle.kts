@@ -9,16 +9,16 @@ repositories {
     mavenCentral()
 }
 
-detekt {
-    toolVersion = "1.18.1"
-    config = files("config/detekt/detekt.yml")
-    buildUponDefaultConfig = true
-}
-
 allprojects {
     apply(plugin = "java")
     apply(plugin = "kotlin")
     apply(plugin = "org.jetbrains.dokka")
+	apply(plugin = "io.gitlab.arturbosch.detekt")
+
+	detekt {
+		toolVersion = "1.18.1"
+		config = files("../config/detekt/detekt.yml")
+	}
 
     group = "io.github.jglrxavpok.hephaistos"
     version = "2.2.0"

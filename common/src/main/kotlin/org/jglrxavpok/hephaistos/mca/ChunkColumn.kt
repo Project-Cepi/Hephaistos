@@ -132,6 +132,10 @@ class ChunkColumn @JvmOverloads constructor(val x: Int, val z: Int, val minY: In
         return sections.computeIfAbsent(sectionY, ::ChunkSection)
     }
 
+	fun fillSection(sectionY: Byte, state: BlockState) {
+		getSection(sectionY).fill(state)
+	}
+
     /**
      * Sets the block state at the given position in the chunk.
      * X,Y,Z must be in chunk coordinates (ie x&z in 0..15, y in minY..maxY)

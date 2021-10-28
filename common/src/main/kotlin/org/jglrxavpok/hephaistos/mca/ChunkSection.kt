@@ -106,6 +106,15 @@ class ChunkSection(val y: Byte) {
         }
     }
 
+	/**
+	 * Fills the entire chunk section with one block.
+	 */
+	fun fill(block: BlockState) {
+		palette = Palette()
+		palette!!.blocks += block
+		palette!!.increaseReference(block)
+	}
+
     private fun checkBounds(x: Int, y: Int, z: Int) {
         if(x !in 0..15) throw IllegalArgumentException("x ($x) is not in 0..15")
         if(y !in 0..15) throw IllegalArgumentException("y ($y) is not in 0..15")

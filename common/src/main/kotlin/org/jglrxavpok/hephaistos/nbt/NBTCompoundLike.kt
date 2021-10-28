@@ -7,6 +7,9 @@ import java.util.function.BiConsumer
 typealias CompoundEntry = Map.Entry<String, NBT>
 typealias MutableCompoundEntry = MutableMap.MutableEntry<String, NBT>
 
+/**
+ * Represents any NBTCompound
+ */
 interface NBTCompoundLike: NBTCompoundGetters {
 
     /**
@@ -32,17 +35,17 @@ interface NBTCompoundLike: NBTCompoundGetters {
     /**
      * Returns a read-only Set of all key/value pairs in this compound.
      */
-    val entries: Set<CompoundEntry> get()= asMapView().entries
+    val entries: Set<CompoundEntry> get() = asMapView().entries
 
     /**
      * Returns a read-only Set of all keys in this compound.
      */
-    val keys: Set<String> get()= asMapView().keys
+    val keys: Set<String> get() = asMapView().keys
 
     /**
      * Returns the number of key/value pairs in the compound.
      */
-    val size: Int get()= asMapView().size
+    val size: Int get() = asMapView().size
 
     /**
      * Returns a read-only Collection of all values in this compound. Note that this collection may contain duplicate values.

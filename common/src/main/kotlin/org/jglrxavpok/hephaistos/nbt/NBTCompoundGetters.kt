@@ -1,5 +1,8 @@
 package org.jglrxavpok.hephaistos.nbt
 
+/**
+ * Interface for any readable NBTCompound
+ */
 interface NBTCompoundGetters {
 
     /**

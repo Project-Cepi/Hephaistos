@@ -1,14 +1,13 @@
 package org.jglrxavpok.hephaistos.parser
 
 import org.antlr.v4.runtime.*
-import org.jglrxavpok.hephaistos.antlr.SNBTLexer
 import org.jglrxavpok.hephaistos.SNBTParsingVisitor
+import org.jglrxavpok.hephaistos.antlr.SNBTLexer
 import org.jglrxavpok.hephaistos.nbt.NBT
 import org.jglrxavpok.hephaistos.nbt.NBTException
 import java.io.Reader
-import kotlin.jvm.Throws
+import java.io.StringReader
 import org.jglrxavpok.hephaistos.antlr.SNBTParser as ANTLRParser
-import java.io.StringReader;
 
 class SNBTParser(val reader: Reader): BaseErrorListener(), AutoCloseable, Cloneable {
 
@@ -46,6 +45,7 @@ class SNBTParser(val reader: Reader): BaseErrorListener(), AutoCloseable, Clonea
 
 	companion object {
 		@JvmStatic
+        @Throws(NBTException::class)
 		fun parse(string: String): NBT {
 			val parser =  SNBTParser(string)
 			return parser.parse().also { parser.close() }
